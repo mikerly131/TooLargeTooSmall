@@ -8,7 +8,9 @@ public class Main {
     public static void main(String[] args){
 
         //variables for the game
-        int guess, selectedNumber;
+        int guess = 0;
+        int selectedNumber;
+        int dupeCheck;
         int max = 100;
         int min = 1;
         int choices = max - min + 1;   //(Source: https://www.geeksforgeeks.org/java-math-random-method-examples)
@@ -25,10 +27,15 @@ public class Main {
 
             // Prompt user to enter a number.  Don't count repeat guesses.
             System.out.println("Guess a number");
+            dupeCheck = guess;
             guess = in.nextInt();
 
+            if (dupeCheck == guess && dupeCheck != 0) {
+                System.out.println("Don't repeat numbers, guess again");
+                break;
+            }
             // Conditional: Compare guess to selectedNumber. Most efficient to see if smaller first?
-            if (guess < selectedNumber) {
+            else if (guess < selectedNumber) {
                 System.out.println("Too small, guess again");
                 guesses++;
             } else if (guess == selectedNumber) {
