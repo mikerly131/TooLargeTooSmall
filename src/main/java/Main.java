@@ -32,7 +32,7 @@ public class Main {
 
             if (dupeCheck == guess && dupeCheck != 0) {
                 System.out.println("Don't repeat numbers, guess again");
-                break;
+                continue;
             }
             // Conditional: Compare guess to selectedNumber. Most efficient to see if smaller first?
             else if (guess < selectedNumber) {
